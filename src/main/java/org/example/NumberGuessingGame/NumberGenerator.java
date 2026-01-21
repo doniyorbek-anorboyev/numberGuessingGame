@@ -4,7 +4,13 @@ import java.util.Random;
 
 public class NumberGenerator {
     private final Random random = new Random();
-    public int generateNumber(int min, int max) {
-        return random.nextInt(max - min + 1) + min;
+
+    private int generatedNumber;
+    public void generateNumber(int min, int max) {
+        generatedNumber = random.nextInt(max - min + 1) + min;
+    }
+
+    public int getGeneratedNumber() {
+        return generatedNumber;
     }
 }

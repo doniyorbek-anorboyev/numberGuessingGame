@@ -10,22 +10,14 @@ public class Console {
     }
 
     public void start() {
-        int min, max;
-
-        while (true) {
-            min = inputHandler.getNumber("min");
-            max = inputHandler.getNumber("max");
-
-            if (min < max) {
-                break;
-            }
-            System.out.println("Minimum must be less than maximum!");
-        }
-
+        int min = inputHandler.getNumber("min");
+        int max = inputHandler.getNumber("max");
         generator.generateNumber(min, max);
         System.out.println("Number is generated. Try to guess it!");
     }
 
-
-
+    public void makeGuess() {
+        GuessEvaluator guessEvaluator = new GuessEvaluator(generator, inputHandler);
+        guessEvaluator.evaluateGuess();
+    }
 }
